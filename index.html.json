@@ -302,7 +302,7 @@
                         "twig"
                     ],
                     "index": 0,
-                    "data": "<iframe style=\"width:100%;height:100%;\" src=\"project/index.html\"></iframe>"
+                    "data": "<iframe style=\"width:100%;height:100%;\" src=\"./project/index.html\"></iframe>"
                 },
                 {
                     "id": "data",
