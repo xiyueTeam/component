@@ -1,0 +1,8 @@
+{
+    "label": "ModelAnimationGroup",
+    "model": "any",
+    "animation": "Array<AnimationClip>",
+    "mixer": "AnimationMixer",
+    "actionArry": "Array<AnimationAction>",
+    "clock": "THREE.Clock()"
+}

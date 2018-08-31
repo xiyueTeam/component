@@ -1,0 +1,6 @@
+{
+  "listData": "Array.from({length: 19}, (value, index) => -9 + index)",
+  "month": "7",
+  "parameter1": "2",
+  "type": "cycle"
+}
