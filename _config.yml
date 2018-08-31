@@ -1,2 +1,2 @@
 theme: jekyll-theme-cayman
-include: [components]
+include: [components/select]
