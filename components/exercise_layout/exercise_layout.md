@@ -71,60 +71,37 @@ template标签内用来写内容区html
 ```sh
   data() {
         return{
-            exerciseOption: {
-                exercise: {
-                      question : {
-                        title : '空间足球受力问题',
-                        coverImage : questionCoverImg
-                     },
-                       stepArray : [
-                                    { coverImage: analytic1Img , call: () => {
-                                        if(this.currentIndex == 0){
-                                            return ;
-                                        }
-                                        this.currentIndex = 0;
+                exerciseOption = {
+                    exercise: {
+                        question : {
+                            title : '晶胞原子数的计算1',
+                            coverImage : questionCoverImg
+                        },
 
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.hideObj();
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.showObj3();
+                        analyticArray:  [{
+                            title : '解析一',
+                            stepArray : [
+                                { coverImage: analytic1Img , call: () => {
 
-                                        if (this.resetCamera) {
-                                            (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.resetCamera();
-                                            this.resetCamera = false;
-                                        }
                                     }},
-
-                                    { coverImage: analytic2Img , call: () => {
-
-                                        if(this.currentIndex == 1){
-                                            return ;
-                                        }
-                                        this.currentIndex = 1;
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.hideObj();
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.showObj1();
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.showObj3();
-
-                                        this.resetCamera = true;
-                                    }},
-
-                                    { coverImage: analytic3Img , call: () => {
-
-                                        if(this.currentIndex == 2){
-                                            return ;
-                                        }
-                                        this.currentIndex = 2;
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.hideObj();
-                                        (ViewController.getInstance().viewHandler as FootballViewHandler).gltf.showObj2();
-
-                                        this.resetCamera = true;
-                                    }},
-                                ]
-                },
-                resizeCall: () => { (ViewController.getInstance().viewHandler as FootballViewHandler).moveDiv(); };
-            }
+                            ]
+                        }]
+                    },
+                    resizeCall: {},
+                    analyticArray: ['解析一']
+                };
         };
     },
 
 ```
+
+## Options组件参数
+
+|    参数名     | 参数类型  | 是否必须|说明|
+| ----------   | ---       |---|--------|
+| exercise     |  Exercise | 是|习题对象，包含题干和解析|
+| resizeCall   |  Function | 否|解析左右滑动时，视图区大小改变的回调函数|
+| analyticArray|  Array    | 是|解析种类，必传参数，如果只有一种解析可传任意字符，必须和Exercise对象中的解析数组一致|
 
 ## Attributes
 
@@ -133,8 +110,8 @@ template标签内用来写内容区html
     //题目
     question: Questions;
 
-    //步骤数组
-    stepArray: Array<Step>;
+    //解析
+    analyticArray: Array<Analytic>;
 
     //当左侧解析拉入/拉出 整体页面resize时的回调
     resizeCall: Function;
@@ -144,14 +121,16 @@ template标签内用来写内容区html
     //标题
     title: string;
 
-    //题干
-    stem: string;
-
     //封面图
     coverImage: string;
 
-    //自定义domid
-    customDom: string;
+### Analytic 解析对象
+ 
+    //解析标题
+    title: string;
+
+    //步骤数组
+    stepArray: Array<Step>;
 
 ### Step 步骤对象
 
