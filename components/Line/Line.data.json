@@ -1,0 +1,6 @@
+{
+  "startPoint": "new THREE.Vector3(-75, 0, -6)",
+  "endPoint": "new THREE.Vector3(75, 0, -6)",
+  "color": "'#1ACEFF'",
+  "lineWidth": "3"
+}
